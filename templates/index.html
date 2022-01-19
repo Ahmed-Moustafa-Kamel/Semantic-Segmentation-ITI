@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>semantic segmentation prediction </title>    
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+       
+    <!-- Custom styles for this template -->
+    <link href="/static/css/form_upload.css" rel="stylesheet">
+
+  </head>
+
+
+<body class="text-center">
+    
+  <form class="form-upload" method=post enctype=multipart/form-data>
+    
+    <img src="{{url_for('static', filename='0.jpeg')}}" alt="Prediction" width="256" height="256"/>
+    <br>    
+    <br>    
+
+    <h1 class="h3 mb-3 fw-normal">Please Upload Your Image</h1>
+    <input type="file" class="form-control" id="image" name="image"  required autofocus>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Predict</button>
+    <br>    
+    {% if image_loc %}
+    <img src="{{url_for('static', filename='02.png')}}" alt="Image" width="512" height="512"/>
+    <img src="{{url_for('static', filename='01.png')}}" alt="Prediction" width="512" height="512"/>
+    {% endif %}
+    <!-- <img class="" src="file:///D:/application/Deployment-Deep-Learning-Model-master/01.JPEG"  alt="" width="256" height="256"> -->
+    <h3 class="h3 mb-3 fw-normal">Prediction: {{prediction}}</h3>    
+  </form>
+  
+</body>
+</html>
